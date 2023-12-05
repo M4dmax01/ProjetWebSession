@@ -1,0 +1,20 @@
+html{
+  height: 100vh !important;
+}
+
+footer {
+  padding: 30px;
+  background-color: #198754;
+}
+
+footer a {
+  color: #e6e6e6;
+}
+
+.form-wrapper{
+  padding: 30px 60px;
+}
+
+.navbar{
+background-color: #198754 !important;
+}
