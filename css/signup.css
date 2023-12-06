@@ -1,0 +1,17 @@
+.form-signup {
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* Ensures the form doesn't stretch too wide on larger screens */
+}
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+/* Responsive width for the form */
+@media (min-width: 992px) {
+    .form-signup {
+        width: 50%; /* Adjust the width as necessary */
+    }
+}
