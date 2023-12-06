@@ -16,5 +16,15 @@ footer a {
 }
 
 .navbar{
-background-color: #198754 !important;
+  background-color: #198754 !important;
+}
+
+/* Set the map size */
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+.hidden{
+  display: hidden;
 }
