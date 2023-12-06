@@ -44,4 +44,15 @@ h3{
 .mark > span:hover:before {
   content: "\2605";
   position: absolute;
+  background-color: #198754 !important;
+}
+
+/* Set the map size */
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+.hidden{
+  display: hidden;
 }
