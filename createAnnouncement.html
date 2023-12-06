@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FavorFood</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">FavorFood</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">
+                <i class="fa-solid fa-house"></i> Accueil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./partennaire.html">
+                <i class="fa-solid fa-sack-dollar"></i> Partennaire
+              </a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>              
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <form id="createForm">
+        <h3>POSTER UNE ANNONCE</h3>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom du plat :</label>
+          <textarea class="form-control" id="name" rows="1" placeholder="Ex : Lasagne, gratin de légumes, ..."></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description et ingrédients :</label>
+          <textarea class="form-control" id="description" rows="5" placeholder="Ex : Viande haché, sauce tomate, ..."></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantité (en g) : </label>
+          <input type="number" class="form-control" id="quantity" placeholder="Ex : 100" pattern="[0-9]*">
+        </div>
+        <div class="mb-3">
+          <label for="allergen" class="form-label">Allergènes : </label>
+          <textarea class="form-control" id="allergen" rows="1" placeholder="Ex : Arachides,Fruit à coques, ..."></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="expiryDate" class="form-label">Date limite de consommation : </label>
+          <input type="date" class="form-control" id="expiryDate" placeholder="Sélectionnez une date">
+        </div>
+        <div class="mb-3">
+           <button class="w-100 btn btn-success btn-lg form-control" type="submit" id="createFoods">Poster l'annonce</button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+        </p>
+        <p class="text-white mb-1">This website is &copy; By the Team !</p>  
+      </div>
+    </footer>
+
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/user.js"></script>
+    <script src="scripts/scripts.js"></script>
+    <script src="scripts/createAnouncement.js"></script>
+
+  </body>
+</html>
