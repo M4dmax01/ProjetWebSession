@@ -8,7 +8,8 @@ async function handleFoodsSubmit(event) {
 
     let allergenSplit = document.getElementById("allergen").value.split(',');
     
-    var user = await getUserById("656fbd20cfc316e7de011927");
+    // TODO modif
+    var user = await getUserById("6570e553ed53bdc22acc13ea");
     
     data = {
         name: document.getElementById("name").value,
