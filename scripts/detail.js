@@ -82,6 +82,10 @@ async function handleReservationSubmit(event) {
             });
 
             const result = await response.json();
+
+            if(result)
+                redirectToHomePage();
+            
             console.log("Success:", result);
         } catch (error) {
             console.error("Error:", error);
@@ -89,4 +93,9 @@ async function handleReservationSubmit(event) {
     } else {
         console.log("Erreur pas d'utilisateur")
     }
+}
+
+
+function redirectToHomePage(){
+    window.location.href = "/";
 }

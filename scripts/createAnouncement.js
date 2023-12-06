@@ -9,7 +9,7 @@ async function handleFoodsSubmit(event) {
     let allergenSplit = document.getElementById("allergen").value.split(',');
     
     // TODO modif
-    var user = await getUserById("6570e553ed53bdc22acc13ea");
+    var user = await getUserById("656fbd96dae697882bab2dd2");
     
     data = {
         name: document.getElementById("name").value,
@@ -30,6 +30,10 @@ async function handleFoodsSubmit(event) {
             });
 
             const result = await response.json();
+
+            if(result)
+                redirectToHomePage();
+
             console.log("Success:", result);
         } catch (error) {
             console.error("Error:", error);
@@ -37,4 +41,11 @@ async function handleFoodsSubmit(event) {
     } else {
         console.log("Erreur pas d'utilisateur")
     }
+
+    
 }
+
+function redirectToHomePage(){
+    window.location.href = "/";
+}
+
