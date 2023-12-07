@@ -2,7 +2,7 @@ const BASE_API = "http://localhost:3000/api";
 
 $('#createForm').on("submit", handleFoodsSubmit);
 
-//Creer une annonce 
+//Creer une annonce
 async function handleFoodsSubmit(event) {
     event.preventDefault();
 

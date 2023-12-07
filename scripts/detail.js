@@ -9,8 +9,14 @@ async function getAFood() {
     try{
         const response = await fetch(BASE_API+"/food/"+ id);
         const data = await response.json();
+        
+        if(data){
+            if(data.idClient)
+                $("#reserveFood").hide();
 
-        populateFoodDetail(data);
+            populateFoodDetail(data);
+        }
+            
 
     } catch(err) {
         console.log(err);
@@ -29,9 +35,9 @@ async function populateFoodDetail(food) {
         })
     }
 
-    
     var user = await getUserById(food.idDonator);
-  
+    console.log(user);
+
     var html = `
         <div class="row mb-5">
             <div class="col">
@@ -40,9 +46,9 @@ async function populateFoodDetail(food) {
         </div>
         <div class="row mb-2">
             <div class="col">
-                <span class="text-center">
-                <h5 class="card-title">${food.name} ${food.name}</h5>
-                <p class="card-text">${food.description}</p>
+                <span>
+                <h4 class="card-title text-center"><b>${food.name}</b></h4>
+                <p class="card-text mt-5 justified-text"">${food.description}</p>
                 <p class="card-text">Allegen : ${allegen}</p>
                 <p class="card-text">Donneur : ${user.username}</p>
                 </span>
@@ -66,17 +72,18 @@ async function handleReservationSubmit(event) {
     var id = urlParams.get('id');
 
     const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    
+    var client = await getUserById(userId);
 
-    if (!userId || !token) {
+    if (!userId || !token || !client) {
         window.location.href = 'login.html';
         return;
     }
 
     data = {
-        idClient: userId
+        idClient: client._id
     }
-    
-    console.log(data);
 
     if(data) {
         try {
@@ -95,6 +102,8 @@ async function handleReservationSubmit(event) {
                 redirectToHomePage();
 
             console.log("Success:", result);
+            showMessage("success" , "Plat reserver avec succes");
+            $("#reserveFood").hide();
         } catch (error) {
             console.error("Error:", error);
         }
@@ -106,4 +115,15 @@ async function handleReservationSubmit(event) {
 
 function redirectToHomePage(){
     window.location.href = "/";
+}
+
+
+function showMessage(color , message) {
+    var alert = `
+    <div class='alert alert-${color} alert-dismissible fade show mx-auto' role='alert' style="width: 80%;">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+
+    $("#errorContainer").html(alert);
 }

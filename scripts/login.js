@@ -1,6 +1,6 @@
 $('#loginForm').on("submit", handleLogin);
 
-async function handleLogin(event){
+async function handleLogin(event) {
     event.preventDefault();
     // Récupérer les valeurs du formulaire
     var formData = {
@@ -19,9 +19,10 @@ async function handleLogin(event){
     .then(response => response.json())
     .then(data => {
         if (data.token) {
+            console.log()
             // Stocker le token dans le stockage local
             localStorage.setItem('token', data.token);
-            localStorage.setItem('userId', data.userId);
+            localStorage.setItem('userId', data._id);
 
             console.log('Success:', data);
             window.location.href = 'index.html'; // Redirection vers la page d'accueil
