@@ -49,7 +49,7 @@
         <h3>POSTER UNE ANNONCE</h3>
         <div class="mb-3">
           <label for="name" class="form-label">Nom du plat :</label>
-          <textarea class="form-control" id="name" rows="1" placeholder="Ex : Lasagne, gratin de légumes, ..."></textarea>
+          <input class="form-control" id="name" placeholder="Ex : Lasagne, gratin de légumes, ...">
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description et ingrédients :</label>
@@ -61,7 +61,7 @@
         </div>
         <div class="mb-3">
           <label for="allergen" class="form-label">Allergènes : </label>
-          <textarea class="form-control" id="allergen" rows="1" placeholder="Ex : Arachides,Fruit à coques, ..."></textarea>
+          <input class="form-control" id="allergen" placeholder="Ex : Arachides,Fruit à coques, ...">
         </div>
         <div class="mb-3">
           <label for="expiryDate" class="form-label">Date limite de consommation : </label>
@@ -69,6 +69,8 @@
         </div>
         <div class="mb-3">
            <button class="w-100 btn btn-success btn-lg form-control" type="submit" id="createFoods">Poster l'annonce</button>
+        </div>
+        <div id="errorContainer">
         </div>
       </form>
     </main>

@@ -31,15 +31,19 @@ async function handleFoodsSubmit(event) {
 
             const result = await response.json();
 
-            if(result)
+            if(data.name && data.description && data.quantity && data.expiryDate && data.idDonator) {
+                showMessage("success", "Annonce ajoute avec succes");
                 redirectToHomePage();
+            } else {
+                showMessage("danger", "Veuillez remplir tous les champs obligatoires");
+            }
 
             console.log("Success:", result);
         } catch (error) {
-            console.error("Error:", error);
+                showMessage("danger", error);
         }
     } else {
-        console.log("Erreur pas d'utilisateur")
+        showMessage("danger", "Impossible de trouver l'utilisateur");
     }
 
     
@@ -49,3 +53,12 @@ function redirectToHomePage(){
     window.location.href = "/";
 }
 
+function showMessage(color , message){
+    var alert = `
+    <div class='alert alert-${color} alert-dismissible fade show mx-auto' role='alert' style="width: 80%;">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+
+    $("#errorContainer").html(alert);
+}
