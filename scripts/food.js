@@ -1,5 +1,6 @@
 const BASE_API = "http://localhost:3000/api";
 
+//Recupere tout les food de l'api
 async function getAllFoods() {
   try {
       const response = await fetch(BASE_API + "/food");
@@ -14,7 +15,7 @@ async function getAllFoods() {
   }
 }
 
-
+//Rempli l'HTML par les foods card
 function populateFoodAnnonces(data) {
 
     var html = "";

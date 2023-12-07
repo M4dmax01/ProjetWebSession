@@ -1,7 +1,7 @@
 const BASE_API = 'http://localhost:3000/api';
 var count=0;
 
-//get a Match
+//Recupere le food de l'api
 async function getAFood() {
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
@@ -58,19 +58,19 @@ getAFood();
 
 $('#reserveFood').on("click", handleReservationSubmit);
 
+//Reserve le Food
 async function handleReservationSubmit(event) {
     event.preventDefault();
+
     var urlParams = new URLSearchParams(window.location.search);
-    
-    const userId = localStorage.getItem('userId');
+    var id = urlParams.get('id');
+
     const token = localStorage.getItem('token');
 
     if (!userId || !token) {
         window.location.href = 'login.html';
         return;
     }
-
-    var id = urlParams.get('id');
 
     data = {
         idClient: userId
@@ -82,6 +82,10 @@ async function handleReservationSubmit(event) {
         try {
             const response = await fetch(BASE_API + "/food/"+id, {
                 method: "PUT",
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json' // Adjust this content type based on your API requirements
+                },
                 body: JSON.stringify(data),
             });
 

@@ -1,7 +1,8 @@
+//Get User par l'identifiant
 async function getUserById(id) {
     try{
         const token = localStorage.getItem('token');
-        
+
         const response = await fetch(BASE_API + "/user/" + id, {
             method: 'GET',
             headers: {

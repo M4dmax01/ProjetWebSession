@@ -1,3 +1,4 @@
+//Render la map dans le detail page
 async function renderFoodMap(FoodAddress) {
   // Initialize and add the map
   var map = L.map('map'); // Removed setView to center map later
@@ -24,6 +25,7 @@ async function renderFoodMap(FoodAddress) {
   }
 }
 
+//Get User coordinates address
 async function getCoordinatesFromAddress(address) {
   try {
     const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`);
