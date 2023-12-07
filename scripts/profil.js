@@ -1,5 +1,4 @@
-// Charger les informations de l'utilisateur au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
+function loadUserData() {
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token');
 
@@ -27,24 +26,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
         console.error('Error fetching user data:', error);
     });
-});
+}
 
-// Gestion de l'ouverture de la fenêtre modale pour la mise à jour
-document.getElementById('updateProfileButton').addEventListener('click', function() {
-    // Ouvrir la fenêtre modale
-    document.getElementById('updateProfileModal').style.display = 'block';
-});
+$('#updateProfileForm').on("submit", handleUpdate);
 
-// Gestion de la mise à jour du profil
-document.getElementById('updateProfileForm').addEventListener('submit', function(event) {
+async function handleUpdate(event){
     event.preventDefault();
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token');
+
     var formData = {
         username: document.getElementById('modalUsername').value,
         lastname: document.getElementById('modalLastname').value,
         email: document.getElementById('modalEmail').value,
-        // Pas de champ pour le mot de passe, la localisation, le code postal et la ville dans la modale
+        password: document.getElementById('modalPassword').value,
+        location: document.getElementById('modalLocation').value,
+        postcode: document.getElementById('modalPostcode').value,
+        city: document.getElementById('modalCity').value
     };
 
     fetch(`http://localhost:3000/api/user/${userId}`, {
@@ -58,18 +56,21 @@ document.getElementById('updateProfileForm').addEventListener('submit', function
     .then(response => response.json())
     .then(data => {
         console.log('Profile Update Success:', data);
-        // Fermer la fenêtre modale
         document.getElementById('updateProfileModal').style.display = 'none';
-        // Recharger les informations de l'utilisateur
-        window.location.reload();
+        loadUserData();
     })
     .catch((error) => {
         console.error('Profile Update Error:', error);
     });
+}
+
+document.getElementById('updateProfileButton').addEventListener('click', function() {
+    document.getElementById('updateProfileModal').style.display = 'block';
 });
 
-// Gestion de la suppression du compte
-document.getElementById('deleteAccount').addEventListener('click', function() {
+
+$('#deleteAccount').on("submit", handleDelete);
+async function handleDelete(event){
     if (confirm("Are you sure you want to delete your account?")) {
         const userId = localStorage.getItem('userId');
         const token = localStorage.getItem('token');
@@ -92,4 +93,6 @@ document.getElementById('deleteAccount').addEventListener('click', function() {
             console.error('Error Deleting Account:', error);
         });
     }
-});
+}
+// Appeler la fonction pour charger les informations de l'utilisateur au chargement de la page
+loadUserData();

@@ -18,6 +18,7 @@ async function handleLogin(event){
     })
     .then(response => response.json())
     .then(data => {
+        console.log('Login response:', data);
         if (data.token) {
             // Stocker le token dans le stockage local
             localStorage.setItem('token', data.token);
