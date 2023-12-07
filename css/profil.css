@@ -11,10 +11,14 @@
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-}
-
-.button:hover {
+  }
+  
+  .button:hover {
     background-color: #145c32; 
     color: white;
-}
-
+  }
+  
+  .card {
+    margin-left: 10px;
+    margin-right: 400px;
+  }
