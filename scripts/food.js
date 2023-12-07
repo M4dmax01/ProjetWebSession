@@ -1,15 +1,19 @@
 const BASE_API = "http://localhost:3000/api";
 
-async function getAllFoods(){
-    try{
-        const response = await fetch(BASE_API+"/food");
-        const data = await response.json();
+async function getAllFoods() {
+  try {
+      const response = await fetch(BASE_API + "/food");
+      const data = await response.json();
 
-        populateFoodAnnonces(data);
-    } catch(err) {
-        console.log(err);
-    }
+      // Filter out items where clientId is undefined
+      const filteredData = data.filter(item => item.idClient == undefined);
+
+      populateFoodAnnonces(filteredData);
+  } catch (err) {
+      console.log(err);
+  }
 }
+
 
 function populateFoodAnnonces(data) {
 

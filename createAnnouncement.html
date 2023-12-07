@@ -30,7 +30,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/profil">
+              <a class="nav-link" href="/profil.html">
                 <i class="fa-solid fa-user"></i> Profil
               </a>
             </li>
@@ -46,28 +46,28 @@
     </nav>
     <main>
       <form id="createForm">
-        <h3>POSTER UNE ANNONCE</h3>
-        <div class="mb-3">
+        <h3 class="align_center">POSTER UNE ANNONCE</h3>
+        <div class="padding-left-right">
           <label for="name" class="form-label">Nom du plat :</label>
           <input class="form-control" id="name" placeholder="Ex : Lasagne, gratin de légumes, ...">
         </div>
-        <div class="mb-3">
+        <div class="padding-left-right">
           <label for="description" class="form-label">Description et ingrédients :</label>
           <textarea class="form-control" id="description" rows="5" placeholder="Ex : Viande haché, sauce tomate, ..."></textarea>
         </div>
-        <div class="mb-3">
+        <div class="padding-left-right">
           <label for="quantity" class="form-label">Quantité (en g) : </label>
           <input type="number" class="form-control" id="quantity" placeholder="Ex : 100" pattern="[0-9]*">
         </div>
-        <div class="mb-3">
+        <div class="padding-left-right">
           <label for="allergen" class="form-label">Allergènes : </label>
           <input class="form-control" id="allergen" placeholder="Ex : Arachides,Fruit à coques, ...">
         </div>
-        <div class="mb-3">
+        <div class="padding-left-right">
           <label for="expiryDate" class="form-label">Date limite de consommation : </label>
           <input type="date" class="form-control" id="expiryDate" placeholder="Sélectionnez une date">
         </div>
-        <div class="mb-3">
+        <div class="padding-left-right">
            <button class="w-100 btn btn-success btn-lg form-control" type="submit" id="createFoods">Poster l'annonce</button>
         </div>
         <div id="errorContainer">

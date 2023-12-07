@@ -48,7 +48,7 @@ async function populateFoodDetail(food) {
                 </span>
             </div>
         </div>
-     `;
+    `;
 
     container.html(html);
     renderFoodMap(user.location);
@@ -60,13 +60,20 @@ $('#reserveFood').on("click", handleReservationSubmit);
 
 async function handleReservationSubmit(event) {
     event.preventDefault();
+    var urlParams = new URLSearchParams(window.location.search);
     
-    var client = await getUserById("656fbd96dae697882bab2dd2");
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+
+    if (!userId || !token) {
+        window.location.href = 'login.html';
+        return;
+    }
 
     var id = urlParams.get('id');
 
     data = {
-        idClient: client._id
+        idClient: userId
     }
     
     console.log(data);
@@ -75,17 +82,14 @@ async function handleReservationSubmit(event) {
         try {
             const response = await fetch(BASE_API + "/food/"+id, {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
                 body: JSON.stringify(data),
             });
 
             const result = await response.json();
-
-            if(result)
+            console.log(result);
+            if(result.length > 0)
                 redirectToHomePage();
-            
+
             console.log("Success:", result);
         } catch (error) {
             console.error("Error:", error);
