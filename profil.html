@@ -26,13 +26,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./createAnnouncement.html">
-                  <i class="fa-solid fa-file-circle-plus"></i> Creer annonce
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profil.html">
-                  <i class="fa-solid fa-user"></i> Profil
+                <a class="nav-link" href="./partennaire.html">
+                  <i class="fa-solid fa-sack-dollar"></i> Partennaire
                 </a>
               </li>
             </ul>
@@ -46,20 +41,81 @@
         </div>
       </nav>
       <main>
-        <div class="container">
-            <h2>Profile Page</h2>
-            <div>Username: <span id="usernameDisplay"></span></div>
-            <div>Lastname: <span id="lastnameDisplay"></span></div>
-            <div>Email: <span id="emailDisplay"></span></div>
-            <div>Password: <span id="passwordDisplay">[Hidden]</span></div>
-            <div>Location: <span id="locationDisplay"></span></div>
-            <div>Postcode: <span id="postcodeDisplay"></span></div>
-            <div>City: <span id="cityDisplay"></span></div>
-            <button id="updateProfileButton" class="btn btn-primary">Update Profile</button>
-            <button id="deleteAccount" class="btn btn-danger">Delete Account</button>
-        </div>
-        
-
+        <div class="col-md-8">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h2>Mon compte</h2><br>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Username</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="usernameDisplay"></span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Lastname</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="lastnameDisplay"></span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="emailDisplay"></span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Password</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="passwordDisplay">[Hidden]</span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Location</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="locationDisplay"></span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Postcode</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="postcodeDisplay"></span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">City</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <span id="cityDisplay"></span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-12">
+                  <button id="updateProfileButton" class="btn btn-primary">Update Profile</button>
+                  <button id="deleteAccount" class="btn btn-danger">Delete Account</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- Fenêtre modale pour la mise à jour du profil -->
         <div id="updateProfileModal" class="modal">
             <!-- Contenu de la fenêtre modale -->
@@ -99,3 +155,9 @@
       
 </body>
 </html>
+
+
+
+
+
+
