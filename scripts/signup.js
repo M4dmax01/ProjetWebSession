@@ -25,7 +25,7 @@ async function handleSignUp(event){
     response.json())
     .then(data => {
         console.log('Success:', data);
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
     })
     .catch((error) => {
         console.error('Error:', error);

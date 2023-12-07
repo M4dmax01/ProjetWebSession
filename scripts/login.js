@@ -16,13 +16,16 @@ async function handleLogin(event){
         },
         body: JSON.stringify(formData), // Convertir les données du formulaire en chaîne JSON
     })
-    .then(response => 
-    response.json())
+    .then(response => response.json())
     .then(data => {
-        if (data.message === "User successfully connected"){
+        if (data.token) {
+            // Stocker le token dans le stockage local
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', data.userId);
+
             console.log('Success:', data);
-            window.location.href = 'index.html';
-        }else {
+            window.location.href = 'index.html'; // Redirection vers la page d'accueil
+        } else {
             console.error('Login failed:', data.message);
         }
     })
