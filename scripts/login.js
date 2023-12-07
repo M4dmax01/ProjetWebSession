@@ -9,7 +9,7 @@ async function handleLogin(event) {
     };
 
     // Envoyer les données du formulaire au serveur au format JSON
-    fetch('http://localhost:3000/api/user/login', {
+    fetch('http://localhost:3000/api/user/web/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,10 +19,9 @@ async function handleLogin(event) {
     .then(response => response.json())
     .then(data => {
         if (data.token) {
-            console.log()
             // Stocker le token dans le stockage local
             localStorage.setItem('token', data.token);
-            localStorage.setItem('userId', data._id);
+            localStorage.setItem('userId', data.userId);
 
             console.log('Success:', data);
             window.location.href = 'index.html'; // Redirection vers la page d'accueil

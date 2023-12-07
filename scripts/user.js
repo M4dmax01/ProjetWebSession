@@ -4,7 +4,7 @@ async function getUserById(id) {
         const token = localStorage.getItem('token');
 
         if (token) {
-            const response = await fetch(BASE_API + "/user/" + id, {
+            const response = await fetch(BASE_API + "/user/web/" + id, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,

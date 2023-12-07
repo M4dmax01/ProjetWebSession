@@ -5,7 +5,7 @@ $('#createForm').on("submit", handleFoodsSubmit);
 const userId = localStorage.getItem('userId');
 const token = localStorage.getItem('token');
 
-if (!userId || !token || !donor) {
+if (!userId || !token) {
     window.location.replace('login.html');
 }
 
@@ -13,13 +13,11 @@ if (!userId || !token || !donor) {
 async function handleFoodsSubmit(event) {
     event.preventDefault();
 
-    //var user = await getUsers();
-
     let allergenSplit = document.getElementById("allergen").value.split(',');
 
-    var donor = getUserById(userId);
+    var donor = await getUserById(userId);
+    console.log(donor);
 
-    
     data = {
         name: document.getElementById("name").value,
         description: document.getElementById("description").value,
@@ -28,6 +26,7 @@ async function handleFoodsSubmit(event) {
         expiryDate: document.getElementById("expiryDate").value,
         idDonator: donor._id
     }
+
     if(data) {
         try {
             const response = await fetch(BASE_API + "/food", {

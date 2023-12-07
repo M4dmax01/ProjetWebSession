@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    fetch(`http://localhost:3000/api/user/${userId}`, {
+    fetch(`http://localhost:3000/api/user/web/${userId}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,

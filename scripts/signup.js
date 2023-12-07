@@ -14,7 +14,7 @@ async function handleSignUp(event){
     };
 
     // Envoyer les données du formulaire au serveur au format JSON
-    fetch('http://localhost:3000/api/user/', {
+    fetch('http://localhost:3000/api/user/web', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
