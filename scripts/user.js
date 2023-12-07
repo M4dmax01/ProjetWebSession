@@ -1,6 +1,6 @@
-async function getUsers() {
+async function getUserById(id) {
     try{
-        const response = await fetch(BASE_API+"/users");
+        const response = await fetch(BASE_API+"/user/"+id);
         const data = await response.json();
 
         return data;
