@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FavorFood</title>
@@ -10,48 +10,49 @@
 
     <link rel="stylesheet" href="css/profil.css">
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-md mb-4">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">FavorFood</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
-                  <i class="fa-solid fa-house"></i> Accueil
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./createAnnouncement.html">
-                  <i class="fa-solid fa-file-circle-plus"></i> Créer une annonce
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./profil.html">
-                  <i class="fa-solid fa-user"></i> Profil
-                </a>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link" id="logoutButton">
-                  <i class="fa-solid fa-right-from-bracket"></i> Déconnecter 
-                </button>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>              
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">FavorFood</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">
+                <i class="fa-solid fa-house"></i> Accueil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./createAnnouncement.html">
+                <i class="fa-solid fa-file-circle-plus"></i> Créer une annonce
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./profil.html">
+                <i class="fa-solid fa-user"></i> Profil
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="logoutButton">
+                <i class="fa-solid fa-right-from-bracket"></i> Déconnecter 
               </button>
-            </form>
-          </div>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>              
+            </button>
+          </form>
         </div>
-      </nav>
-      <main>
-        <div class="col-md-8">
+      </div>
+    </nav>
+    <main>
+      <div class="row">
+        <div class="col-md-6">
           <div class="card mb-3">
             <div class="card-body">
               <h2>Mon compte</h2><br>
@@ -126,34 +127,18 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="py-5 bg-light">
-            <div class="container">
-              <div class="row mb-3 justify-content-end">
-                <div class="col text-end">
-                </div>
-              </div>        
-              <div id ="CommentContainer" class="row mb-2">
-              </div>
-            </div>
+        <div class="col-md-6">
+          <div class="container">
+              <div class="row">
+                <div id="CommentContainer">
+
+                </div>    
+              </div>  
           </div>
-        <!-- Fenêtre modale pour la mise à jour du profil
-        <div id="updateProfileModal" class="modal">
-            Contenu de la fenêtre modale 
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form id="updateProfileForm">
-                    <input type="text" id="modalUsername" placeholder="New username">
-                    <input type="text" id="modalLastname" placeholder="New lastname">
-                    <input type="email" id="modalEmail" placeholder="New email">
-                    <input type="password" id="modalPassword" placeholder="New password">
-                    <input type="text" id="modalLocation" placeholder="New address">
-                    <input type="text" id="modalPostcode" placeholder="New postal code">
-                    <input type="text" id="modalCity" placeholder="New city">
-                    <button type="submit">Submit Changes</button>
-                </form>
-            </div>
-        </div> -->
+        </div>
+      </div>
     </main>
 
     <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModallLabel" aria-hidden="true">
@@ -202,15 +187,14 @@
         </div>
       </div>
     </div>
-    
-    
+
     <footer class="footer">
-        <div class="container">
-          <p class="float-end mb-1">
-            <a href="#"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
-          </p>
-          <p class="text-white mb-1">This website is &copy; By the Team !</p>  
-        </div>
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+        </p>
+        <p class="text-white mb-1">This website is &copy; By the Team !</p>  
+      </div>
     </footer>
 
     <script src="scripts/jquery.js"></script>
@@ -223,7 +207,7 @@
     <script src="scripts/profil.js"></script>
     <script src="scripts/logout.js"></script>
     <script src="scripts/comment.js"></script>
-</body>
+  </body>
 </html>
 
 

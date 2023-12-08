@@ -30,7 +30,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/profil">
+              <a class="nav-link" href="/profil.html">
                 <i class="fa-solid fa-user"></i> Profil
               </a>
             </li>
@@ -67,8 +67,11 @@
           <label for="description" class="form-label">Description :</label>
           <textarea class="form-control" id="description" rows="5" placeholder="Ex : Viande haché, sauce tomate, ..."></textarea>
         </div>
-        <div class="mb-3">
-           <button class="w-100 btn btn-success btn-lg form-control" type="submit" id="createFoods">Poster le commentaire</button>
+        <div class="mb-3 text-center">
+          <button class="btn btn-success btn-sm" type="submit" id="createFoods">Poster le commentaire</button>
+          <a href="./index.html" class="btn btn-secondary btn-sm mx-2">Annuler</a>
+        </div>        
+        <div id="errorContainer">
         </div>
       </form>
     </main>

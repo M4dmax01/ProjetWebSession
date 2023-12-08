@@ -75,9 +75,17 @@ async function handleCommentSubmit(event) {
     var userCommentator = await getUserById("6570e52fed53bdc22acc13e8");
     var userTarget = await getUserById("6570e553ed53bdc22acc13ea");
 
+    var title=document.getElementById("title").value;
+    var description=document.getElementById("description").value;
+
+    if(!title || !description || getRatingValue() == 0) {
+        showMessage("danger" , "Impossible d'envoyer le commentaire");
+        return;
+    }
+
     data = {
-        title: document.getElementById("title").value,
-        description: document.getElementById("description").value,
+        title: title,
+        description: description,
         mark: getRatingValue(),
         date: getCurrentDate(),
         idCommentator: userCommentator._id,
@@ -94,9 +102,13 @@ async function handleCommentSubmit(event) {
             });
 
             const result = await response.json();
-            console.log("Success:", result);
+
+            if(result) {
+                showMessage("success" , "Votre commentaire a été reçu."); 
+                window.location.replace('index.html');
+            }
         } catch (error) {
-            console.error("Error:", error);
+            showMessage("danger" , error);
         }
     } else {
         console.log("Erreur pas d'utilisateur")
@@ -112,30 +124,27 @@ async function getAllComments() {
         // Filter out items where clientId is undefined
         const filteredData = data.filter(item => item.idClient == undefined);
   
-        populateFoodAnnonces(filteredData);
+        populateComments(filteredData);
     } catch (err) {
         console.log(err);
     }
   }
 
-  //Rempli l'HTML par les foods card
-function populateFoodAnnonces(data) {
+//Rempli l'HTML par les comment card
+function populateComments(data) {
 
     var html = "";
 
     data.forEach(function(comment) {
 
         html += `
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                   <strong class="d-inline-block mb-2 text-success">Note : ${comment.mark} / 5</strong>
                   <h3 class="mb-0">${comment.title}</h3>
                   <div class="mb-1 text-muted">${moment(comment.date).format('DD/MM/YYYY HH:mm:ss')}</div>
                   <p class="card-text mb-auto">${comment.description}</p> 
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
                 </div>
               </div>
             </div>
@@ -147,3 +156,15 @@ function populateFoodAnnonces(data) {
 }
 
 getAllComments();
+
+
+
+function showMessage(color , message) {
+    var alert = `
+    <div class='alert alert-${color} alert-dismissible fade show mx-auto' role='alert' style="width: 80%;">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+
+    $("#errorContainer").html(alert);
+}
